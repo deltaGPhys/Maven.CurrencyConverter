@@ -26,20 +26,12 @@ public enum CurrencyType {
         return rate;
     }
 
-    public String getClassName() {
-        return className;
-    }
-
-    public static CurrencyType getByClassName(String className) {
+    public static CurrencyType getTypeOfCurrency(ConvertableCurrency currency) {
         for (CurrencyType ct : CurrencyType.values()) {
-            if (ct.className.equals(className)) {
+            if (ct.className.equals(currency.getClass().getSimpleName())) {
                 return ct;
             }
         }
         return null;
-    }
-
-    public static CurrencyType getTypeOfCurrency(ConvertableCurrency currency) {
-        return getByClassName(currency.getClass().getSimpleName());
     }
 }
